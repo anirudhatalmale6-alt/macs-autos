@@ -6,6 +6,9 @@
 <title>Macs Autos - All Mechanical Work | Book Online</title>
 <meta name="description" content="Macs Autos - Professional mechanical services. All mechanical work except tyres. Open 7 days a week. Book online today!">
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Teko:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --red: #cc1111;
@@ -25,6 +28,13 @@
 html { scroll-behavior: smooth; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 a { color: var(--red); text-decoration: none; }
+.brand-font { font-family: 'Russo One', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+.heading-font { font-family: 'Teko', sans-serif; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.chrome-text {
+  background: linear-gradient(180deg, #fff 0%, #c0c0c8 30%, #888 50%, #c0c0c8 70%, #fff 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 /* Nav */
 nav {
@@ -36,13 +46,14 @@ nav {
 }
 .nav-brand { display: flex; align-items: center; gap: 12px; }
 .nav-brand img { height: 44px; }
-.nav-brand span { font-size: 20px; font-weight: 800; color: var(--silver-light); letter-spacing: 1px; }
+.nav-brand span { font-family: 'Russo One', sans-serif; font-size: 20px; font-weight: 400; color: var(--silver-light); letter-spacing: 3px; text-transform: uppercase; }
 .nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover { color: var(--red); }
 .nav-cta {
   background: var(--red); color: #fff !important; padding: 8px 20px;
-  border-radius: 8px; font-weight: 700; font-size: 14px;
+  border-radius: 8px; font-family: 'Teko', sans-serif; font-weight: 600; font-size: 17px;
+  letter-spacing: 1px; text-transform: uppercase;
   transition: background 0.2s;
 }
 .nav-cta:hover { background: var(--red-dark); }
@@ -73,7 +84,7 @@ nav {
 .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #00e676; }
 .btn-primary {
   display: inline-block; background: var(--red); color: #fff; padding: 14px 36px;
-  border-radius: 10px; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;
+  border-radius: 10px; font-family: 'Teko', sans-serif; font-size: 19px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
   transition: all 0.3s; border: none; cursor: pointer;
   box-shadow: 0 4px 20px var(--red-glow);
 }
@@ -89,7 +100,7 @@ nav {
 section { padding: 80px 24px; }
 .container { max-width: 1000px; margin: 0 auto; }
 .section-title { text-align: center; margin-bottom: 48px; }
-.section-title h2 { font-size: 32px; font-weight: 800; color: var(--silver-light); margin-bottom: 8px; }
+.section-title h2 { font-family: 'Teko', sans-serif; font-size: 40px; font-weight: 700; color: var(--silver-light); margin-bottom: 8px; letter-spacing: 2px; text-transform: uppercase; }
 .section-title .accent-line { width: 60px; height: 4px; background: var(--red); border-radius: 2px; margin: 12px auto 0; }
 .section-title p { color: var(--text-muted); margin-top: 12px; }
 
@@ -109,7 +120,7 @@ section { padding: 80px 24px; }
 .service-card:hover { border-color: rgba(204,17,17,0.3); background: var(--bg-hover); }
 .service-card:hover::before { transform: scaleX(1); }
 .service-icon { font-size: 32px; margin-bottom: 14px; }
-.service-card h3 { font-size: 18px; font-weight: 700; color: var(--silver-light); margin-bottom: 6px; }
+.service-card h3 { font-family: 'Teko', sans-serif; font-size: 22px; font-weight: 600; color: var(--silver-light); margin-bottom: 6px; letter-spacing: 1px; text-transform: uppercase; }
 .service-card p { font-size: 14px; color: var(--text-muted); }
 
 /* Booking */
@@ -150,7 +161,7 @@ section { padding: 80px 24px; }
   padding: 28px; text-align: center;
 }
 .info-card .info-icon { font-size: 36px; margin-bottom: 12px; }
-.info-card h3 { font-size: 18px; font-weight: 700; color: var(--silver-light); margin-bottom: 8px; }
+.info-card h3 { font-family: 'Teko', sans-serif; font-size: 22px; font-weight: 600; color: var(--silver-light); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
 .info-card p { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
 
 /* Footer */
@@ -158,7 +169,7 @@ footer {
   border-top: 1px solid var(--border); padding: 32px 24px;
   text-align: center; color: var(--text-muted); font-size: 13px;
 }
-footer .footer-brand { font-weight: 700; color: var(--silver); }
+footer .footer-brand { font-family: 'Russo One', sans-serif; font-weight: 400; color: var(--silver); letter-spacing: 2px; }
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -191,7 +202,7 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
 <section class="hero">
   <div>
     <img src="logo.png" alt="Macs Autos" class="hero-logo">
-    <h1>MACS <span>AUTOS</span></h1>
+    <h1 class="brand-font chrome-text" style="font-size:clamp(40px,7vw,64px);">MACS <span style="-webkit-text-fill-color:var(--red);color:var(--red);">AUTOS</span></h1>
     <p>Professional mechanical services you can trust. All mechanical work done right, every time.</p>
     <div class="hero-badges">
       <div class="hero-badge"><div class="dot"></div> Open 7 Days</div>
@@ -209,7 +220,7 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
   <div class="container">
     <div style="background:linear-gradient(135deg, rgba(204,17,17,0.15), rgba(204,17,17,0.05)); border:2px solid var(--red); border-radius:16px; padding:32px; text-align:center;">
       <div style="font-size:40px; margin-bottom:8px;">&#128663;</div>
-      <h2 style="font-size:26px; font-weight:800; color:var(--red); margin-bottom:8px;">LOAN CARS AVAILABLE</h2>
+      <h2 style="font-family:'Teko',sans-serif; font-size:34px; font-weight:700; color:var(--red); margin-bottom:8px; letter-spacing:2px;">LOAN CARS AVAILABLE</h2>
       <p style="color:var(--text-muted); font-size:16px; max-width:500px; margin:0 auto;">Need to get around while your car is being serviced? No worries - we have loan cars available so you're never stuck without a ride.</p>
     </div>
   </div>

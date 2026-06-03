@@ -197,9 +197,21 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
       <div class="hero-badge"><div class="dot"></div> Open 7 Days</div>
       <div class="hero-badge">8:00 AM - 4:30 PM</div>
       <div class="hero-badge">All Mechanical Work</div>
+      <div class="hero-badge" style="border-color:var(--red);color:var(--red);font-weight:700;">Loan Cars Available</div>
     </div>
     <a href="#booking" class="btn-primary">Book a Service</a>
     <a href="#services" class="btn-secondary">Our Services</a>
+  </div>
+</section>
+
+<!-- Loan Car Banner -->
+<section style="padding:40px 24px 0;">
+  <div class="container">
+    <div style="background:linear-gradient(135deg, rgba(204,17,17,0.15), rgba(204,17,17,0.05)); border:2px solid var(--red); border-radius:16px; padding:32px; text-align:center;">
+      <div style="font-size:40px; margin-bottom:8px;">&#128663;</div>
+      <h2 style="font-size:26px; font-weight:800; color:var(--red); margin-bottom:8px;">LOAN CARS AVAILABLE</h2>
+      <p style="color:var(--text-muted); font-size:16px; max-width:500px; margin:0 auto;">Need to get around while your car is being serviced? No worries - we have loan cars available so you're never stuck without a ride.</p>
+    </div>
   </div>
 </section>
 
@@ -334,6 +346,10 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
             </select>
           </div>
         </div>
+        <div class="form-group" style="display:flex; align-items:center; gap:10px;">
+          <input type="checkbox" id="bLoanCar" style="width:20px; height:20px; accent-color:var(--red);">
+          <label for="bLoanCar" style="margin:0; text-transform:none; font-size:15px; cursor:pointer;">I need a loan car while my vehicle is being serviced</label>
+        </div>
         <div class="form-group">
           <label>Additional Details (optional)</label>
           <textarea id="bDetails" placeholder="Describe any issues or special requests..."></textarea>
@@ -372,7 +388,7 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
       <div class="info-card">
         <div class="info-icon">&#11088;</div>
         <h3>Why Choose Us</h3>
-        <p>Honest pricing<br>Fast turnaround<br>7 days availability</p>
+        <p>Honest pricing<br>Fast turnaround<br>7 days availability<br><strong style="color:var(--red);">Loan cars available</strong></p>
       </div>
     </div>
   </div>
@@ -400,6 +416,7 @@ function handleBooking(e) {
     date: document.getElementById('bDate').value,
     time: document.getElementById('bTime').value,
     details: document.getElementById('bDetails').value,
+    loanCar: document.getElementById('bLoanCar').checked,
   };
 
   // Store locally (can be connected to a backend/email service later)

@@ -360,6 +360,14 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
           <label>Additional Details (optional)</label>
           <textarea id="bDetails" placeholder="Describe any issues or special requests..."></textarea>
         </div>
+        <div style="position:absolute;left:-9999px;"><input type="text" id="bWebsite" tabindex="-1" autocomplete="off"></div>
+        <div class="form-group">
+          <label id="captchaLabel">Anti-spam check</label>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span id="captchaQ" style="font-size:18px;font-weight:700;color:var(--silver-light);"></span>
+            <input type="text" id="bCaptcha" required placeholder="Your answer" style="width:120px;">
+          </div>
+        </div>
         <button type="submit" class="submit-btn">Submit Booking Request</button>
         <p class="form-note" style="margin-top:12px; text-align:center;">We'll confirm your booking via phone or text</p>
       </form>
@@ -411,8 +419,27 @@ const dateInput = document.getElementById('bDate');
 const today = new Date().toISOString().split('T')[0];
 dateInput.setAttribute('min', today);
 
+// Anti-spam: simple math captcha
+let captchaA, captchaB;
+function newCaptcha() {
+  captchaA = Math.floor(Math.random() * 10) + 1;
+  captchaB = Math.floor(Math.random() * 10) + 1;
+  document.getElementById('captchaQ').textContent = captchaA + ' + ' + captchaB + ' =';
+}
+newCaptcha();
+
 function handleBooking(e) {
   e.preventDefault();
+  // Honeypot check - bots fill hidden fields
+  if (document.getElementById('bWebsite').value) return false;
+  // Captcha check
+  const answer = parseInt(document.getElementById('bCaptcha').value);
+  if (answer !== captchaA + captchaB) {
+    alert('Incorrect answer - please try again.');
+    newCaptcha();
+    document.getElementById('bCaptcha').value = '';
+    return false;
+  }
   const data = {
     name: document.getElementById('bName').value,
     phone: document.getElementById('bPhone').value,

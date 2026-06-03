@@ -426,10 +426,32 @@ function handleBooking(e) {
     loanCar: document.getElementById('bLoanCar').checked,
   };
 
-  // Store locally (can be connected to a backend/email service later)
-  const bookings = JSON.parse(localStorage.getItem('macs_bookings') || '[]');
-  bookings.push({...data, submitted: new Date().toISOString()});
-  localStorage.setItem('macs_bookings', JSON.stringify(bookings));
+  // Send to Discord
+  const webhook = 'https://discord.com/api/webhooks/1511722975819206777/f9wWwd0oXsJWurKKTH03nprfSGbinlBprj-CGvNI2p1tS10vdAdoj3Stqn5KCYolW6Pi';
+  const embed = {
+    title: '🔧 New Booking Request',
+    color: 0xcc1111,
+    fields: [
+      {name: 'Customer', value: data.name, inline: true},
+      {name: 'Phone', value: data.phone, inline: true},
+      {name: 'Email', value: data.email || 'Not provided', inline: true},
+      {name: 'Vehicle', value: data.vehicle, inline: true},
+      {name: 'Rego', value: data.rego || 'Not provided', inline: true},
+      {name: 'Service', value: data.service, inline: true},
+      {name: 'Date', value: data.date, inline: true},
+      {name: 'Time', value: data.time, inline: true},
+      {name: 'Loan Car', value: data.loanCar ? 'Yes' : 'No', inline: true},
+    ],
+    footer: {text: 'Macs Autos Booking System'},
+    timestamp: new Date().toISOString()
+  };
+  if (data.details) embed.fields.push({name: 'Details', value: data.details});
+
+  fetch(webhook, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({embeds: [embed]})
+  }).catch(() => {});
 
   // Show success
   document.getElementById('serviceForm').style.display = 'none';

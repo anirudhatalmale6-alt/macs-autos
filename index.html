@@ -297,9 +297,15 @@ footer .footer-brand { font-weight: 700; color: var(--silver); }
           <label>Email (optional)</label>
           <input type="email" id="bEmail" placeholder="your@email.com">
         </div>
-        <div class="form-group">
-          <label>Vehicle</label>
-          <input type="text" id="bVehicle" required placeholder="e.g. 2019 Toyota Hilux">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vehicle</label>
+            <input type="text" id="bVehicle" required placeholder="e.g. 2019 Toyota Hilux">
+          </div>
+          <div class="form-group">
+            <label>Rego</label>
+            <input type="text" id="bRego" required placeholder="e.g. ABC 123" style="text-transform:uppercase;">
+          </div>
         </div>
         <div class="form-group">
           <label>Service Required</label>
@@ -412,6 +418,7 @@ function handleBooking(e) {
     phone: document.getElementById('bPhone').value,
     email: document.getElementById('bEmail').value,
     vehicle: document.getElementById('bVehicle').value,
+    rego: document.getElementById('bRego').value,
     service: document.getElementById('bService').value,
     date: document.getElementById('bDate').value,
     time: document.getElementById('bTime').value,
